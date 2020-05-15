@@ -1,0 +1,12 @@
+.ant-modal-header {
+  background-color: rgb(92, 0, 128);
+}
+.ant-modal-title {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+.ant-modal-body {
+  text-align: center;
+  font-size: 16px;
+}
