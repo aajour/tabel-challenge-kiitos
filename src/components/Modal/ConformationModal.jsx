@@ -31,7 +31,7 @@ export default class ConformationModal extends Component {
     const { onOkFunc, id } = this.props;
     return (
       <div>
-        <Button icon={<DeleteOutlined />} onClick={this.showModal} danger />
+        <Button icon={<DeleteOutlined />} onClick={this.showModal} />
         <Modal
           title='Remove Conformation'
           visible={this.state.visible}
