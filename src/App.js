@@ -57,13 +57,17 @@ export default class App extends Component {
         <div className='menuWithHeaders'>
           <SelectMenu
             onSelect={this.handleSelectChange.bind(this)}
-            roles={roles}
+            options={roles}
             value={selectedValue}
+            style={{ width: '90%' }}
+            placeholder='Select a role'
           />
           <CustomButton onClick={this.handleAdd.bind(this)} text='Add' />
           <CustomButton onClick={this.handleClear.bind(this)} text='Clear' />
         </div>
-        <TableBody onOk={this.handleOki.bind(this)} data={tableData} />
+        <div className='TableContainer'>
+          <TableBody onOk={this.handleOki.bind(this)} data={tableData} />
+        </div>
       </div>
     );
   }

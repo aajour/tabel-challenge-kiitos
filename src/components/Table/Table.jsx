@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { createRef, Component } from 'react';
 import { Table } from 'antd';
 import ConformationModal from '../Modal/ConformationModal';
+import TableFilter from './TableFilter';
 export default class TableBody extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +34,7 @@ export default class TableBody extends Component {
         key: 'role',
         width: '95%',
         sorter: customSort,
+        filterDropdown: TableFilter,
       },
       {
         title: '',
@@ -45,7 +47,13 @@ export default class TableBody extends Component {
     ];
 
     return (
-      <Table columns={columns} dataSource={data} bordered pagination={false} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        bordered
+        pagination={false}
+        scroll={{ y: true }}
+      />
     );
   }
 }

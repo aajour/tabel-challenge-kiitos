@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Space } from 'antd';
+import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
 import './style.css';
 import { DeleteOutlined } from '@ant-design/icons';
@@ -35,6 +35,7 @@ export default class ConformationModal extends Component {
         <Modal
           title='Remove Conformation'
           visible={this.state.visible}
+          okText='Yes'
           onOk={() => {
             onOkFunc(id);
             this.handleOk();

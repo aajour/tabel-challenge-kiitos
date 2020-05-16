@@ -1,8 +1,11 @@
 .App {
-  text-align: center;
+  padding: 10px;
 }
 .menuWithHeaders {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  width: 100%;
+}
+.TableContainer {
+  width: 98%;
 }

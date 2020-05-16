@@ -19,3 +19,13 @@ export const userRoles = [
     role: 'Assistant',
   },
 ];
+
+export const filterValues = {
+  firstCondation: [
+    'Is equal to',
+    'Is not equal to',
+    'Includes',
+    'Not Includes',
+  ],
+  secondCondation: ['And', 'Or'],
+};
