@@ -28,14 +28,17 @@ export default class ConformationModal extends Component {
     });
   };
   render() {
-    const { onOk } = this.props;
+    const { onOkFunc, id } = this.props;
     return (
       <div>
         <Button icon={<DeleteOutlined />} onClick={this.showModal} danger />
         <Modal
           title='Remove Conformation'
           visible={this.state.visible}
-          onOk={onOk}
+          onOk={() => {
+            onOkFunc(id);
+            this.handleOk();
+          }}
           onCancel={this.handleCancel}
         >
           <p>Are you sure you want to remove this Security Role?</p>

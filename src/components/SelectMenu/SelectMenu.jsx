@@ -16,15 +16,16 @@ export default class SelectMenu extends Component {
   };
 
   render() {
-    const { roles, onSelect } = this.props;
+    const { roles, onSelect, value } = this.props;
     return (
       <Select
         showSearch
         showArrow
+        placeholder='Select a role'
+        value={value ? value : this.placeholder}
         onSelect={onSelect}
         size='large'
         style={{ width: 500 }}
-        placeholder='Select a role'
         optionFilterProp='children'
         filterOption={(input, option) =>
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0

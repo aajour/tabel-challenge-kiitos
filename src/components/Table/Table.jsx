@@ -20,7 +20,9 @@ export default class TableBody extends Component {
       {
         title: '',
         key: 'action',
-        render: () => <ConformationModal onOk={onOk} />,
+        render: (text, record) => (
+          <ConformationModal onOkFunc={onOk} id={record.id} />
+        ),
         width: '5%',
       },
     ];
