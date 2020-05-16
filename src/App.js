@@ -49,6 +49,7 @@ export default class App extends Component {
       selectedValue: null,
     });
   }
+
   render() {
     const { tableData, selectedValue } = this.state;
     return (

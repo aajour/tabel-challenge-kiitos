@@ -10,12 +10,29 @@ export default class TableBody extends Component {
 
   render() {
     const { data, onOk } = this.props;
+    function customSort() {
+      const rulesWithRatings = {
+        Founder: 7,
+        Director: 6,
+        Manager: 5,
+        Officer: 4,
+        Coordinator: 3,
+        Facilitator: 2,
+        Assistant: 1,
+        Volunteer: 0,
+      };
+      data.map((role) => (role['rating'] = rulesWithRatings[role['role']]));
+      data.sort(function (a, b) {
+        return a.rating - b.rating;
+      });
+    }
     const columns = [
       {
         title: 'User Role',
         dataIndex: 'role',
         key: 'role',
         width: '95%',
+        sorter: customSort,
       },
       {
         title: '',
