@@ -13,15 +13,21 @@ export default class App extends Component {
       tableData: userRoles,
       selectedValue: null,
     };
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+    this.handleModalOk = this.handleModalOk.bind(this);
   }
 
-  handleOki(rowKey) {
+  handleModalOk(rowKey) {
+    //delete the row when the user clicks modal ok button
     const newRows = this.state.tableData.filter((row) => row.id !== rowKey);
     this.setState({
       ...this.state,
       tableData: newRows,
     });
   }
+
   handleSelectChange(value) {
     this.setState({
       ...this.state,
@@ -36,6 +42,7 @@ export default class App extends Component {
           ...this.state,
           tableData: [
             ...tableData,
+            //generate simple random ID
             { id: Math.random() * 10, role: selectedValue },
           ],
         },
@@ -56,17 +63,17 @@ export default class App extends Component {
       <div className='App'>
         <div className='menuWithHeaders'>
           <SelectMenu
-            onSelect={this.handleSelectChange.bind(this)}
+            onSelect={this.handleSelectChange}
             options={roles}
             value={selectedValue}
             style={{ width: '90%' }}
             placeholder='Select a role'
           />
-          <CustomButton onClick={this.handleAdd.bind(this)} text='Add' />
-          <CustomButton onClick={this.handleClear.bind(this)} text='Clear' />
+          <CustomButton onClick={this.handleAdd} text='Add' />
+          <CustomButton onClick={this.handleClear} text='Clear' />
         </div>
         <div className='TableContainer'>
-          <TableBody onOk={this.handleOki.bind(this)} data={tableData} />
+          <TableBody onOk={this.handleModalOk} data={tableData} />
         </div>
       </div>
     );
